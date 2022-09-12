@@ -1,0 +1,48 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 12px;
+}
+.header {
+    margin: 0;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: black;
+}
+.tocurrency {
+    background-color: white;
+    height: 50px;
+    width: 101px;
+    margin: 5px;
+    padding: 4px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+img {
+    width: 23px;
+    height: 23px;
+    margin-right: 15px;
+}
+p {
+    font-size: 12px;
+    margin: 0;
+    justify-content: center;
+}
+.block {
+    display: flex;
+    align-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+}
+.block1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,0 +1,10 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: Roboto, HelveticaNeue, Arial, sans-serif;
+}
+footer {
+    margin: 150px 0 0 0;
+    text-align: center;
+}
