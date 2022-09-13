@@ -11,24 +11,30 @@ import { currencies } from 'src/app/currency.model';
 })
 export class CurrencyConvertorMainComponent implements OnInit {
   /* Html declarations */
-  Title: string = 'Конвертор Валют';
-  Currency: number = 1;
+  titleValue: string = 'Конвертор Валют';
+  currencyValue: number = 1;
   /* ngModule inputs and selects declarations */
   priceFromFormat: number = 1;
   priceToFormat: number = 1;
   currencyToFormat: string = 'UAH';
   currencyFromFormat: string = 'USD';
   rate: number = 1;
+  /* Array to use in select */
+  currency: currencies[] = [
+    { value: 'USD' },
+    { value: 'EUR' },
+    { value: 'UAH' },
+  ];
   /* Service private function declaration */
   constructor(private configService: ServiceService) { };
   /* Getting currency with subscribe method using config.service */
   getCurrency(): void {
     this.configService.getCurrency(this.currencyFromFormat, this.currencyToFormat).subscribe(response => {
       /* Getting a value to use in a template */
-      this.Currency = response.info.rate,
-      /* Getting the value for the script to work */
-      this.rate = parseFloat(response.info.rate.toFixed(2)),
-      this.priceToFormat = parseFloat((this.priceFromFormat * this.rate).toFixed(2));
+      this.currencyValue = response.info.rate,
+        /* Getting the value for the script to work */
+        this.rate = parseFloat(response.info.rate.toFixed(2)),
+        this.priceToFormat = parseFloat((this.priceFromFormat * this.rate).toFixed(2));
       if (
         this.currencyFromFormat === this.currencyToFormat
       ) {
@@ -52,12 +58,6 @@ export class CurrencyConvertorMainComponent implements OnInit {
   currencyToEvent(event: Event | any): void {
     this.currencyToFormat = event.target.value, this.getCurrency();
   };
-  /* Array to use in select */
-  currency: currencies[] = [
-    { value: 'USD' },
-    { value: 'EUR' },
-    { value: 'UAH' },
-  ];
   /* Component initialization */
   ngOnInit(): void {
     this.getCurrency()
